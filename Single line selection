@@ -1,0 +1,15 @@
+df[df['W']> 0]['X']  #returns X column where condition for W is true. 
+
+df[df['W']> 0][['Y','X']]  #conditional selection 
+
+df[(df['W']>0)&(df['Y']>1)]
+  # Python's usual (and) operator will not work here because we are using columns / series 
+  # of multiple data
+  # the pipe | operator could work
+  
+df.reset_index()  #allows us to index the df
+
+newind = 'NJ NY WY FL CO'.split()  #inserting new values to be set as index
+
+df['States'] = newind #adding the states / split var turned into a list into df which will remove the a b c d e index
+
