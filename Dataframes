@@ -1,0 +1,55 @@
+import numpy as np
+
+import pandas as pd
+from numpy.random import randn
+
+labels = ['a', 'b','c']
+my_data = [10, 20, 30]
+arr = np.array(my_data)
+d = {'a':10,'b':20,'c':30}
+
+
+pd.Series(data=my_data)
+
+pd.Series(data=my_data,index=labels)
+
+pd.Series(my_data,labels)
+
+pd.Series(arr,labels)
+
+ser1 = pd.Series([1,2,3,4],['USA','GERMANY','ITALY','JAPAN'])
+ser1
+
+### Pandas dataframes
+
+a = np.random.seed(101)
+
+df = pd.DataFrame(randn(5,4),['A','B','C','D','E'],['W','X','Y','Z'])
+
+df
+
+df['W']  #EACH COLUMN IS BASICALLY JUST A SERIES
+
+df[['W','Z']] #selecting multiple columns
+
+df['new'] = df['W']+ df['Y']
+df
+
+df.drop('new', axis = 1)  #axis reffers to the column
+
+df
+#still shows the new column because the inplace arg was not set to true
+#using shift and tab on the function parameters will show you the options example
+
+df.drop('new', axis = 1, inplace = True)  #the inplace parameter will finally delete the desired column
+
+df.shape
+
+df.loc['A'] #selecting a row
+
+df.iloc[0] #is used to select the same row, but with nubmer based index refering to A
+
+df.loc['B','Y']
+
+df.loc[['A', 'B'],['Y','Z'] ] #SELECTING ROWS AND COLUMNS
+
