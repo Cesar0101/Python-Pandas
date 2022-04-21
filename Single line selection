@@ -1,3 +1,5 @@
+df = pd.DataFrame(randn(5,4),['A','B','C','D','E'],['W','X','Y','Z'])  #this creates a table with 5 rows and 4 columns
+
 df[df['W']> 0]['X']  #returns X column where condition for W is true. 
 
 df[df['W']> 0][['Y','X']]  #conditional selection 
